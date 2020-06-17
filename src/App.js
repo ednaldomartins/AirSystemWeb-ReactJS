@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import {Grid, Card, CardContent, Typography, makeStyles} from '@material-ui/core'
 import axios from 'axios'
 import './App.css';
+import PlaceCards from './component/PlaceCards'
 
 class App extends Component {
 
@@ -32,40 +31,16 @@ class App extends Component {
 
   render() {
     return (
-      <grid> {
-        getComponentListPlace(this.state.places)
-      } </grid>
+      <div>
+        <grid> 
+        {
+          <PlaceCards places={this.state.places}/>
+        } 
+        </grid>
+      </div>
     );
   }
 
 }
-
-const getComponentListPlace = (props) => {
-  return (
-    <Grid container spacing={1}>
-    {
-      props.map(
-        place => (
-          <Grid item md={3}>
-            <Card >
-              <CardContent >
-                <Typography variant="h7">
-                  <p>País: {place.country}</p>
-                  <p>Estado: {place.estate}</p>
-                  <p>Cidade: {place.city}</p>
-                  <p>CEP: {place.zip_code}</p>  
-                </Typography>
-                <Typography variant="h8" color="textSecondary" align="right">
-                  identificador: {place.place_id}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        )
-      )
-    } 
-    </Grid>
-  )
-} 
 
 export default App;
