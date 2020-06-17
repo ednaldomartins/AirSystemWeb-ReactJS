@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, Text} from 'react'
 import axios from 'axios'
-import './App.css';
+import './App.css'
 import PlaceCards from './component/PlaceCards'
+import FlightCards from './component/FlightCards'
 
 class App extends Component {
 
@@ -34,7 +35,18 @@ class App extends Component {
       <div>
         <grid> 
         {
-          <PlaceCards places={this.state.places}/>
+          <div className="columns">
+            <p>Cidades</p>
+            <PlaceCards places={this.state.places}/>
+          </div>
+        } 
+        </grid>
+        <grid> 
+        {
+          <div className="columns">
+            <p>Voos</p>
+            <FlightCards flights={this.state.flights}/>
+          </div>
         } 
         </grid>
       </div>
